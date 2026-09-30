@@ -38,14 +38,14 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 2. 좌측 사이드바 */
+/* 2. 좌측 사이드바 (PC 기준) */
 aside {
   width: var(--sidebar-width);
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  padding: 40px 30px;
+  padding: 40px 30px; /* 좌우 여백 30px 동일 */
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -54,18 +54,17 @@ aside {
   z-index: 100;
 }
 
-/* 반응형 퍼플 로고 박스 (가변 정사각형 비율 및 모바일 최적화) */
+/* [요청 1 반영] PC 로고 너비: 사이드바 좌우 패딩을 제외한 영역에 100% 맞춤 */
 .logo-box {
-  width: 100%;
-  max-width: 160px;
-  aspect-ratio: 1 / 1; /* 가로세로 1:1 반응형 유지 */
+  width: 100%; /* LNB 영역 안에서 좌우 여백 균등하게 확충 */
+  aspect-ratio: 1 / 1; /* 1:1 정정사각형 유지 */
   background: linear-gradient(135deg, #a855f7, #6366f1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   font-weight: 700;
-  font-size: clamp(0.8rem, 1.2vw, 1rem); /* 반응형 폰트 */
+  font-size: 1rem;
   letter-spacing: 0.05em;
   margin-bottom: 40px;
   border-radius: 4px;
@@ -100,7 +99,7 @@ nav ul li a:hover, nav ul li a.active {
   line-height: 1.7;
 }
 
-/* 3. Projects 카드 그리드 & 호버 애니메이션 */
+/* 3. Projects 카드 그리드 & [요청 3 반영] 얌전해진 인터랙션 */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -115,13 +114,13 @@ nav ul li a:hover, nav ul li a.active {
   border-radius: 6px;
   overflow: hidden;
   background: #fafafa;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  /* 부드럽게 약간만 올라가는 트랜지션 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 30px rgba(138, 82, 255, 0.12);
-  border-color: var(--purple-accent);
+  transform: translateY(-4px); /* 보라색 테두리 삭제, 살짝만 위로 이동 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06); /* 은은하고 연한 회색 그림자 */
 }
 
 .card-img-placeholder {
@@ -144,7 +143,7 @@ nav ul li a:hover, nav ul li a.active {
 .card-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
 .card-info p { font-size: 0.85rem; color: var(--subtext); }
 
-/* 4. 프로젝트 상세페이지 스타일 */
+/* 4. 프로젝트 상세페이지 전용 스타일 */
 .detail-header {
   margin-bottom: 40px;
   border-bottom: 1px solid var(--border);
@@ -164,7 +163,7 @@ nav ul li a:hover, nav ul li a.active {
   margin-bottom: 24px;
 }
 
-/* 5. Contact & Experience */
+/* 5. Contact 페이지 스타일 */
 .contact-container {
   display: flex;
   gap: 60px;
@@ -178,21 +177,47 @@ nav ul li a:hover, nav ul li a.active {
   background-color: #eee;
 }
 
-/* 반응형 설정 */
+/* [요청 2 반영] 모바일 전용 미디어 쿼리 (가로 900px 이하) */
 @media (max-width: 900px) {
   body { flex-direction: column; }
+  
   aside {
     width: 100%;
     height: auto;
     position: relative;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 24px;
+    padding: 24px 20px;
   }
+  
+  /* 모바일에서 로고 이미지 너비 가로 100% (비율에 맞게 세로 높이 지정) */
   .logo-box {
-    max-width: 100px;
+    width: 100%;
+    height: 120px; /* 너무 뚱뚱해지지 않게 가로 긴 직사각형 배너 형태 */
+    aspect-ratio: auto;
     margin-bottom: 20px;
   }
+
+  /* 모바일 메뉴 가로 배열 */
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  nav ul li {
+    margin-bottom: 0;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem;
+  }
+
+  .sidebar-info {
+    display: none; /* 모바일에서 어지러워 보이지 않도록 사이드바 하단 정보 숨김 처리 */
+  }
+
   main { margin-left: 0; padding: 30px 20px; }
   .projects-grid { grid-template-columns: repeat(1, 1fr); }
   .contact-container { flex-direction: column; }
