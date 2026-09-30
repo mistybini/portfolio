@@ -1,0 +1,199 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  --bg: #ffffff;
+  --text: #191919;
+  --subtext: #666666;
+  --purple-accent: #8A52FF;
+  --border: #e0e0e0;
+  --sidebar-width: 280px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* 1. 페이지 진입 애니메이션 (Fade-in) */
+main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  padding: 60px 80px;
+  max-width: 1200px;
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. 좌측 사이드바 */
+aside {
+  width: var(--sidebar-width);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 40px 30px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/* 반응형 퍼플 로고 박스 (가변 정사각형 비율 및 모바일 최적화) */
+.logo-box {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1; /* 가로세로 1:1 반응형 유지 */
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.2vw, 1rem); /* 반응형 폰트 */
+  letter-spacing: 0.05em;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.logo-box:hover {
+  transform: scale(1.02);
+}
+
+nav ul { list-style: none; }
+nav ul li { margin-bottom: 18px; }
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--subtext);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: var(--purple-accent);
+  padding-left: 4px;
+}
+
+.sidebar-info {
+  font-size: 0.8rem;
+  color: #888888;
+  line-height: 1.7;
+}
+
+/* 3. Projects 카드 그리드 & 호버 애니메이션 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fafafa;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(138, 82, 255, 0.12);
+  border-color: var(--purple-accent);
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 220px;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease;
+}
+
+.project-card:hover .card-img-placeholder {
+  background-color: #cbd5e1;
+}
+
+.card-info { padding: 18px; }
+.card-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+.card-info p { font-size: 0.85rem; color: var(--subtext); }
+
+/* 4. 프로젝트 상세페이지 스타일 */
+.detail-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+.detail-header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+.detail-header .meta { font-size: 0.9rem; color: var(--purple-accent); font-weight: 600; }
+.detail-desc { font-size: 1rem; color: #444; margin-bottom: 40px; max-width: 800px; }
+.detail-images img, .detail-img-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+/* 5. Contact & Experience */
+.contact-container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+.contact-photo {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+/* 반응형 설정 */
+@media (max-width: 900px) {
+  body { flex-direction: column; }
+  aside {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 24px;
+  }
+  .logo-box {
+    max-width: 100px;
+    margin-bottom: 20px;
+  }
+  main { margin-left: 0; padding: 30px 20px; }
+  .projects-grid { grid-template-columns: repeat(1, 1fr); }
+  .contact-container { flex-direction: column; }
+}
