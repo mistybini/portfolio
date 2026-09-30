@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyu Bin Park - UI & Graphic Designer</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #ffffff;
+      --subtext: #a0a0a0;
+      --accent: #6c5ce7;
+      --card-bg: #1e1e1e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 50px 10%;
+    }
+    header { margin-bottom: 80px; }
+    h1 { font-size: 3rem; font-weight: 700; margin-bottom: 8px; }
+    p.role { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+    p.intro { color: var(--subtext); max-width: 600px; font-size: 1rem; }
+    
+    section { margin-bottom: 100px; }
+    h2 { font-size: 1.8rem; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      border: 1px solid #2a2a2a;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .img-box {
+      width: 100%;
+      height: 220px;
+      background-color: #2c2c2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtext);
+    }
+    .info { padding: 20px; }
+    .info h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .info p { font-size: 0.9rem; color: var(--subtext); }
+
+    .about-item { margin-bottom: 25px; }
+    .about-item h3 { font-size: 1.1rem; color: var(--text); }
+    .about-item span { font-size: 0.85rem; color: var(--accent); }
+    .about-item ul { margin-top: 8px; padding-left: 18px; color: var(--subtext); font-size: 0.9rem; }
+
+    footer { color: var(--subtext); font-size: 0.9rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Kyu Bin Park</h1>
+    <p class="role">UI & Graphic Designer</p>
+    <p class="intro">글로벌 브랜드 및 디지털 프로젝트를 수행한 15년+ 경력의 UI & Graphic Designer입니다.</p>
+  </header>
+
+  <!-- PROJECTS (상단 3개만 배치) -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="card">
+        <div class="img-box">Image Placeholder 1</div>
+        <div class="info">
+          <h3>QonUS Web Order</h3>
+          <p>Mobile UI Design & Redesign (2025.02)</p>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="card">
+        <div class="img-box">Image Placeholder 2</div>
+        <div class="info">
+          <h3>QonUS Brand Assets</h3>
+          <p>Social Media & Promo Design</p>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="card">
+        <div class="img-box">Image Placeholder 3</div>
+        <div class="info">
+          <h3>Topstar International</h3>
+          <p>E-commerce & Graphic Design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Experience</h2>
+    <div class="about-item">
+      <h3>QonUS (Multiz Corp.) — <span>그래픽 & 웹 디자이너</span></h3>
+      <ul>
+        <li>회사 웹사이트(WordPress, Framer) 제작</li>
+        <li>POS 시스템 및 앱 UI 리뉴얼, 와이어프레임 제작</li>
+      </ul>
+    </div>
+    <div class="about-item">
+      <h3>Topstar International — <span>E-commerce & 그래픽 디자이너</span></h3>
+      <ul>
+        <li>온라인 쇼핑몰(eBay, Amazon) 운영 및 시각 디자인</li>
+        <li>제품 상세페이지, SNS 콘텐츠, 프로모션 디자인</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:kbins1212@gmail.com">kbins1212@gmail.com</a></p>
+    <p>Phone: +61 0483 822 156</p>
+    <p>Location: Sydney, NSW</p>
+  </section>
+
+</body>
+</html>
