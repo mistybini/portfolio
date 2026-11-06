@@ -3,56 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kyu Bin Park - Works</title>
+  <meta name="description" content="Kyubin Park - Graphic & Web Designer Portfolio">
+  <title>KYUBIN PARK - Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <aside>
-    <div>
-      <a href="index.html" style="text-decoration:none;"><div class="logo-box">KYUBIN, PARK</div></a>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">PROJECTS</a></li>
-          <li><a href="experience.html">WORK EXPERIENCE</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-      </nav>
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="profile">
+      <a href="index.html" class="profile-image">
+        <span>KYUBIN, PARK</span>
+      </a>
     </div>
-    <div class="sidebar-info">
+
+    <nav class="main-nav">
+      <a href="#projects" class="active">PROJECTS</a>
+      <a href="#work">WORK EXPERIENCE</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="sidebar-bottom" id="contact">
       <p>Tel : +61 0483 822 156</p>
-      <p>E-mail : kbins1212@gmail.com</p>
-      <p>Addr : Sydney, NSW</p>
+      <p>E-mail : <a href="mailto:kbins1212@gmail.com">kbins1212@gmail.com</a></p>
+      <p>Address : Sydney, NSW</p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+          ◎
+        </a>
+        <a href="mailto:kbins1212@gmail.com" aria-label="Email">
+          ✉
+        </a>
+      </div>
     </div>
+
   </aside>
 
-  <main>
-    <section class="projects-grid">
-      <!-- 프로젝트 카드 클릭 시 상세 페이지로 이동 -->
-      <a href="project-1.html" class="project-card">
-        <div class="card-img-placeholder">QonUS Web Order Image</div>
-        <div class="card-info">
-          <h3>QonUS Web Order</h3>
-          <p>Mobile UI Design & Redesign</p>
-        </div>
-      </a>
 
-      <a href="project-1.html" class="project-card">
-        <div class="card-img-placeholder">QonUS Brand Assets Image</div>
-        <div class="card-info">
-          <h3>QonUS Brand Assets</h3>
-          <p>Social Media & Promo Design</p>
-        </div>
-      </a>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
-      <a href="project-1.html" class="project-card">
-        <div class="card-img-placeholder">Topstar International Image</div>
-        <div class="card-info">
-          <h3>Topstar International</h3>
-          <p>E-commerce & Graphic Design</p>
-        </div>
+    <section class="projects-section" id="projects">
+
+      <div class="project-gallery">
+
+        <!-- PROJECT 01 -->
+        <a href="project-1.html" class="project-card">
+          <img src="images/projects/qonus-sns.jpg" alt="QonUS SNS Content Design">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · GRAPHIC DESIGN</span>
+            <h3>QonUS SNS 콘텐츠 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 02 -->
+        <a href="project-2.html" class="project-card">
+          <img src="images/projects/qonus-table-order.jpg" alt="QonUS Table Order UI">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · UI DESIGN</span>
+            <h3>테이블오더용 인터랙션 이벤트 UI 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 03 -->
+        <a href="project-3.html" class="project-card">
+          <img src="images/projects/qonus-web-order.jpg" alt="QonUS Web Order Design">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · WEB DESIGN</span>
+            <h3>QonUS Web Order 디자인 리뉴얼</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 04 -->
+        <a href="project-4.html" class="project-card">
+          <img src="images/projects/qonus-company.jpg" alt="QonUS Company Introduction">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · EDITORIAL</span>
+            <h3>QonUS 회사 소개서</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 05 -->
+        <a href="project-5.html" class="project-card">
+          <img src="images/projects/qonus-brochure.jpg" alt="QonUS Brochure Design">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · GRAPHIC DESIGN</span>
+            <h3>브로셔 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 06 -->
+        <a href="project-6.html" class="project-card">
+          <img src="images/projects/qonus-website.jpg" alt="QonUS Website Design">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · WEB DESIGN</span>
+            <h3>QonUS 웹사이트 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 07 -->
+        <a href="project-7.html" class="project-card">
+          <img src="images/projects/qonus-promotion.jpg" alt="QonUS Promotion Design">
+          <div class="project-overlay">
+            <span class="project-category">QONUS · PROMOTION</span>
+            <h3>QonUS 이벤트/프로모션 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 08 -->
+        <a href="project-8.html" class="project-card">
+          <img src="images/projects/duranno-plus.jpg" alt="Duranno Plus Design">
+          <div class="project-overlay">
+            <span class="project-category">UI/UX · WEB & APP</span>
+            <h3>두란노 플러스 Web/App/Viewer 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 09 -->
+        <a href="project-9.html" class="project-card">
+          <img src="images/projects/playdonut.jpg" alt="Playdonut Game Tournament Platform">
+          <div class="project-overlay">
+            <span class="project-category">UI/UX · PLATFORM</span>
+            <h3>플레이도넛 게임 토너먼트 플랫폼 운영 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 10 -->
+        <a href="project-10.html" class="project-card">
+          <img src="images/projects/kiznote.jpg" alt="Kids Note Web Mobile Design">
+          <div class="project-overlay">
+            <span class="project-category">UI/UX · WEB & MOBILE</span>
+            <h3>키즈노트 Web/Mobile 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 11 -->
+        <a href="project-11.html" class="project-card">
+          <img src="images/projects/heomchima.jpg" alt="Web and Mobile Design">
+          <div class="project-overlay">
+            <span class="project-category">UI/UX · WEB & MOBILE</span>
+            <h3>험치마포 Web/Mobile 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 12 -->
+        <a href="project-12.html" class="project-card">
+          <img src="images/projects/feelway.jpg" alt="Feelway Event Design">
+          <div class="project-overlay">
+            <span class="project-category">FEELWAY · PROMOTION</span>
+            <h3>필웨이 기획전/이벤트 운영 디자인</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 13 -->
+        <a href="project-13.html" class="project-card">
+          <img src="images/projects/ebslang.jpg" alt="EBS Lang Design">
+          <div class="project-overlay">
+            <span class="project-category">EBS LANG · WEB DESIGN</span>
+            <h3>EBS lang 프로모션 및 운영 디자인 및 퍼블리싱</h3>
+          </div>
+        </a>
+
+        <!-- PROJECT 14 -->
+        <a href="project-14.html" class="project-card">
+          <img src="images/projects/portfolio-other.jpg" alt="Graphic Design Projects">
+          <div class="project-overlay">
+            <span class="project-category">GRAPHIC DESIGN</span>
+            <h3>기타 그래픽 디자인 프로젝트</h3>
+          </div>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORK EXPERIENCE -->
+    <section class="work-section" id="work">
+      <div class="section-heading">
+        <span>CAREER</span>
+        <h2>WORK EXPERIENCE</h2>
+      </div>
+
+      <a href="work-experience.html" class="work-link">
+        View Work Experience →
       </a>
     </section>
+
+    <footer>
+      <p>© 2026 KYUBIN PARK. ALL RIGHTS RESERVED.</p>
+    </footer>
+
   </main>
 
 </body>
