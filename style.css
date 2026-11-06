@@ -1,224 +1,398 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
-:root {
-  --bg: #ffffff;
-  --text: #191919;
-  --subtext: #666666;
-  --purple-accent: #8A52FF;
-  --border: #e0e0e0;
-  --sidebar-width: 280px;
-}
+/* ==============================
+   RESET
+============================== */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  display: flex;
-  min-height: 100vh;
-  line-height: 1.6;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #ffffff;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 1. 페이지 진입 애니메이션 (Fade-in) */
-main {
-  margin-left: var(--sidebar-width);
-  flex: 1;
-  padding: 60px 80px;
-  max-width: 1200px;
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-/* 2. 좌측 사이드바 (PC 기준) */
-aside {
-  width: var(--sidebar-width);
+/* ==============================
+   LEFT SIDEBAR
+============================== */
+
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
+  width: 25%;
   height: 100vh;
-  padding: 40px 30px; /* 좌우 여백 30px 동일 */
-  border-right: 1px solid var(--border);
+  padding: 28px 25px;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #fff;
   z-index: 100;
 }
 
-/* [요청 1 반영] PC 로고 너비: 사이드바 좌우 패딩을 제외한 영역에 100% 맞춤 */
-.logo-box {
-  width: 100%; /* LNB 영역 안에서 좌우 여백 균등하게 확충 */
-  aspect-ratio: 1 / 1; /* 1:1 정정사각형 유지 */
-  background: linear-gradient(135deg, #a855f7, #6366f1);
+.profile-image {
+  width: 198px;
+  height: 198px;
+  max-width: 100%;
+  background: linear-gradient(135deg, #9a8cff, #8936f5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 40px;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-
-.logo-box:hover {
-  transform: scale(1.02);
-}
-
-nav ul { list-style: none; }
-nav ul li { margin-bottom: 18px; }
-
-nav ul li a {
-  text-decoration: none;
-  color: var(--subtext);
-  font-size: 0.95rem;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  letter-spacing: 1px;
 }
 
-nav ul li a:hover, nav ul li a.active {
-  color: var(--purple-accent);
-  padding-left: 4px;
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 38px;
 }
 
-.sidebar-info {
-  font-size: 0.8rem;
-  color: #888888;
-  line-height: 1.7;
+.main-nav a {
+  font-size: 20px;
+  font-weight: 400;
+  color: #444444;
+  transition: color 0.3s ease;
 }
 
-/* 3. Projects 카드 그리드 & [요청 3 반영] 얌전해진 인터랙션 */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.main-nav a:hover,
+.main-nav a.active {
+  color: #8650ed;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  margin-bottom: 15px;
+  color: #999999;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.sidebar-bottom a:hover {
+  color: #8650ed;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.social-links a {
+  color: #333333;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+}
+
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main-content {
+  width: 75%;
+  margin-left: 25%;
+  padding: 23px 30px 30px 0;
+}
+
+.projects-section {
+  width: 100%;
+}
+
+
+/* ==============================
+   PROJECT GALLERY
+============================== */
+
+.project-gallery {
+  column-count: 3;
+  column-gap: 18px;
+  width: 100%;
 }
 
 .project-card {
+  position: relative;
   display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 18px;
   overflow: hidden;
-  background: #fafafa;
-  /* 부드럽게 약간만 올라가는 트랜지션 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  break-inside: avoid;
+  background: #f4f4f4;
+  cursor: pointer;
 }
 
-.project-card:hover {
-  transform: translateY(-4px); /* 보라색 테두리 삭제, 살짝만 위로 이동 */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06); /* 은은하고 연한 회색 그림자 */
-}
-
-.card-img-placeholder {
+.project-card img {
+  display: block;
   width: 100%;
-  height: 220px;
-  background-color: #e2e8f0;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+
+/* Hover Overlay */
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 30, 45, 0.72);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  color: #64748b;
-  font-size: 0.85rem;
-  transition: background-color 0.3s ease;
-}
-
-.project-card:hover .card-img-placeholder {
-  background-color: #cbd5e1;
-}
-
-.card-info { padding: 18px; }
-.card-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
-.card-info p { font-size: 0.85rem; color: var(--subtext); }
-
-/* 4. 프로젝트 상세페이지 전용 스타일 */
-.detail-header {
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 20px;
-}
-.detail-header h1 { font-size: 2.2rem; margin-bottom: 8px; }
-.detail-header .meta { font-size: 0.9rem; color: var(--purple-accent); font-weight: 600; }
-.detail-desc { font-size: 1rem; color: #444; margin-bottom: 40px; max-width: 800px; }
-.detail-images img, .detail-img-placeholder {
-  width: 100%;
-  height: 400px;
-  background-color: #f1f5f9;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  margin-bottom: 24px;
+  text-align: center;
+  padding: 20px;
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-/* 5. Contact 페이지 스타일 */
-.contact-container {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
-.contact-photo {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 8px;
-  background-color: #eee;
+.project-category {
+  color: #d9c9ff;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  transform: translateY(10px);
+  transition: transform 0.35s ease;
 }
 
-/* [요청 2 반영] 모바일 전용 미디어 쿼리 (가로 900px 이하) */
-@media (max-width: 900px) {
-  body { flex-direction: column; }
-  
-  aside {
+.project-overlay h3 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+  transform: translateY(10px);
+  transition: transform 0.35s ease;
+}
+
+
+/* Mouse Hover */
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-card:hover .project-category,
+.project-card:hover .project-overlay h3 {
+  transform: translateY(0);
+}
+
+.project-card:hover img {
+  transform: scale(1.04);
+}
+
+
+/* Keyboard Accessibility */
+
+.project-card:focus-visible {
+  outline: 3px solid #8650ed;
+  outline-offset: 3px;
+}
+
+.project-card:focus-visible .project-overlay {
+  opacity: 1;
+}
+
+.project-card:focus-visible .project-category,
+.project-card:focus-visible .project-overlay h3 {
+  transform: translateY(0);
+}
+
+
+/* ==============================
+   WORK EXPERIENCE
+============================== */
+
+.work-section {
+  margin-top: 100px;
+  padding: 50px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.section-heading span {
+  color: #8650ed;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.work-link {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #8650ed;
+  transition: opacity 0.3s ease;
+}
+
+.work-link:hover {
+  opacity: 0.6;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+  padding: 30px 0 10px;
+  border-top: 1px solid #eeeeee;
+  color: #aaaaaa;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 1100px) {
+
+  .sidebar {
+    width: 25%;
+    padding: 25px 18px;
+  }
+
+  .profile-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .main-content {
+    width: 75%;
+    margin-left: 25%;
+    padding-right: 20px;
+  }
+
+  .project-gallery {
+    column-count: 2;
+    column-gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 17px;
+  }
+
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    position: relative;
     width: 100%;
     height: auto;
-    position: relative;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 24px 20px;
-  }
-  
-  /* 모바일에서 로고 이미지 너비 가로 100% (비율에 맞게 세로 높이 지정) */
-  .logo-box {
-    width: 100%;
-    height: 120px; /* 너무 뚱뚱해지지 않게 가로 긴 직사각형 배너 형태 */
-    aspect-ratio: auto;
-    margin-bottom: 20px;
+    padding: 20px;
   }
 
-  /* 모바일 메뉴 가로 배열 */
-  nav ul {
-    display: flex;
+  .profile-image {
+    width: 110px;
+    height: 110px;
+    font-size: 12px;
+  }
+
+  .main-nav {
     flex-direction: row;
-    gap: 16px;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
   }
 
-  nav ul li {
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .sidebar-bottom {
+    margin-top: 25px;
     margin-bottom: 0;
+    font-size: 11px;
   }
 
-  nav ul li a {
-    font-size: 0.85rem;
+  .social-links {
+    margin-top: 10px;
   }
 
-  .sidebar-info {
-    display: none; /* 모바일에서 어지러워 보이지 않도록 사이드바 하단 정보 숨김 처리 */
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 15px 15px 30px;
   }
 
-  main { margin-left: 0; padding: 30px 20px; }
-  .projects-grid { grid-template-columns: repeat(1, 1fr); }
-  .contact-container { flex-direction: column; }
+  .project-gallery {
+    column-count: 2;
+    column-gap: 10px;
+  }
+
+  .project-card {
+    margin-bottom: 10px;
+  }
+
+  .project-overlay {
+    padding: 8px;
+  }
+
+  .project-overlay h3 {
+    font-size: 11px;
+  }
+
+  .project-category {
+    font-size: 8px;
+  }
+
+  /* 모바일에서는 Hover 대신 제목 표시 */
+  .project-overlay {
+    opacity: 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75),
+      transparent 75%
+    );
+  }
+
+  .project-category {
+    display: none;
+  }
+
+  .project-overlay h3 {
+    transform: none;
+  }
+
+  .project-card:hover img {
+    transform: none;
+  }
+
+  .work-section {
+    margin-top: 50px;
+  }
+
 }
